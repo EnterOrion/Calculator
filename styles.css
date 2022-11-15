@@ -43,6 +43,11 @@ body {
     height: 80px;
     background-color: orange;
     border: black 1px solid;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
 }
 
 .item19 {
@@ -50,5 +55,9 @@ body {
     height: 80px;
     background-color: darkorange;
     border: black 1px solid;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
