@@ -10,6 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 20px;
     width: 320px;
     height: 500px;
     background-color: beige;
@@ -20,16 +21,18 @@ body {
 }
 
 .calc-window {
+    box-sizing: border-box;
+    padding-right: 5px;
     width: 328px;
     height: 200px;
     background-color: black;
     color: white;
-    font-size: 50px;
+    font-size: 70px;
     text-align: right;
     
 }
 
-.calc-row1, .calc-row2, .calc-row3, .calc-row4, .calc-row5{
+[class ^="calc-row"]{
     display: flex;
 }
 
@@ -37,8 +40,7 @@ body {
     width: 102.5%;
 }
 
-.item1, .item2, .item3, .item4, .item5, .item6, .item7, .item8, .item9, .item10, 
-.item11, .item12, .item13, .item14, .item15, .item16, .item17, .item18{
+[class ^="item"]{
     width: 80px;
     height: 80px;
     background-color: orange;
