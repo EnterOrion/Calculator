@@ -1,7 +1,6 @@
 let numDisplay = 0;
 let num1 = 0;
 let num2 = 0;
-//let signalNum = 0;
 let operatorSelection = "None";
 updateDisplay();
 
@@ -21,7 +20,7 @@ function divNum(a,b) {
     return a / b;
 }
 
-function operatorOutput(opFunc, a, b, signal = "") {
+function operatorOutput(opFunc, a, b) {
     let answer = 0;
     if (opFunc == "*") {
         answer = multNum(a,b);
@@ -37,14 +36,9 @@ function operatorOutput(opFunc, a, b, signal = "") {
     }
     num2 = 0;
     numDisplay = 0;
-    //operatorSelection = "None";
-    if (signal == "=") {
-       num1 = 0;
-    }
-    else {
-        console.log("this has been reached");
-        num1 = answer;
-    }
+    operatorSelection = "None";
+    num1 = answer;
+
     document.querySelector('.calc-window').innerText = answer;
 }
 
