@@ -29,7 +29,7 @@ function operator(opFunc, a, b) {
         answer = divNum(a,b);
     }
     else if (opFunc == "+") {
-        answer = addNum(a,b);
+        answer = addNum(Number(a), Number(b));
     }
     else if (opFunc == "-") {
         answer = subNum(a,b);
@@ -42,8 +42,13 @@ function inputNum(num) {
         numDisplay = num;
       
     }
-    else if (num1 != 0) {
+    else if (num1 != 0 && operatorSelection != "None") {
+        if (num2 == 0) {
         numDisplay = num;
+        }
+        else {
+            numDisplay += num.toString();
+        }
     }
     else {
     numDisplay += num.toString();
