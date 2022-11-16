@@ -1,4 +1,4 @@
-let numDisplay = 0;
+let numDisplay = "0";
 let num1 = 0;
 let num2 = 0;
 let operatorSelection = "None";
@@ -49,14 +49,18 @@ function inputNum(num) {
     }
     else if (num1 != 0 && operatorSelection != "None") {
         if (num2 == 0) {
-        numDisplay = num;
+            numDisplay = num;
         }
         else {
+            if (numDisplay.toString().length < 9) {
             numDisplay += num.toString();
+            }
         }
     }
     else {
-    numDisplay += num.toString();
+        if (numDisplay.toString().length < 9) {
+        numDisplay += num.toString();
+        }
     }
     updateDisplay();
 }
@@ -72,7 +76,9 @@ function updateNum(num) {
             num1 = num;  
         }
         else {
+            if (num1.toString().length < 9) {
         num1 += num.toString();
+            }
         }
     }
     else {
@@ -80,9 +86,12 @@ function updateNum(num) {
         num2 = num;
         }
         else {
+           if (num1.toString().length < 9) {
         num2 += num.toString();
+           }
         }
     }
+
 }
 
 function updateOperator(operator) {
