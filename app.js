@@ -23,9 +23,17 @@ function divNum(a,b) {
 function operator(opFunc, a, b) {
     let answer = 0;
     if (opFunc == "*") {
-        answer = multNum(a, b);
+        answer = multNum(a,b);
     }
-    
+    else if (opFunc == "/") {
+        answer = divNum(a,b);
+    }
+    else if (opFunc == "+") {
+        answer = addNum(a,b);
+    }
+    else if (opFunc == "-") {
+        answer = subNum(a,b);
+    }
     document.querySelector('.calc-window').innerText = answer;
 }
 

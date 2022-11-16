@@ -13,21 +13,21 @@
         <div class = "calc-window"></div>
         <div class = "calc-row1"> 
             <div class = "item1" onclick = "clearWindow()"> AC </div> <div class = "item2"> +/- </div>
-            <div class = "item3">%</div> <div class = "item4">/</div> 
+            <div class = "item3">%</div> <div class = "item4" onclick="updateOperator('/')">/</div> 
         </div>
             <div class = "calc-row2"><div class = "item5" onclick="inputNum(7); updateNum(7)">7</div><div class = "item6" onclick="inputNum(8); updateNum(8)">8</div>
-            <div class = "item7" onclick="inputNum(9)">9</div><div class = "item8" onclick="updateOperator('*')">*</div>
+            <div class = "item7" onclick="inputNum(9); updateNum(9)">9</div><div class = "item8" onclick="updateOperator('*')">*</div>
         </div>
         <div class = "calc-row3">
-            <div class = "item9" onclick="inputNum(4)">4</div><div class = "item10" onclick="inputNum(5)">5</div>
-            <div class = "item11" onclick="inputNum(6)">6</div><div class = "item12">-</div>
+            <div class = "item9" onclick="inputNum(4); updateNum(4)">4</div><div class = "item10" onclick="inputNum(5); updateNum(5)">5</div>
+            <div class = "item11" onclick="inputNum(6); updateNum(6)">6</div><div class = "item12" onclick="updateOperator('-')">-</div>
         </div>
         <div class = "calc-row4">
-            <div class = "item13" onclick="inputNum(1)">1</div><div class = "item14" onclick="inputNum(2)">2</div>
-            <div class = "item15" onclick="inputNum(3)">3</div><div class = "item16">+</div>
+            <div class = "item13" onclick="inputNum(1); updateNum(1)">1</div><div class = "item14" onclick="inputNum(2); updateNum(2)">2</div>
+            <div class = "item15" onclick="inputNum(3); updateNum(3)">3</div><div class = "item16" onclick="updateOperator('+')">+</div>
         </div>
         <div class = calc-row5>
-            <div class = "item17" onclick="inputNum(0)">0</div><div class = "item18">.</div>
+            <div class = "item17" onclick="inputNum(0); updateNum(0)">0</div><div class = "item18">.</div>
             <div class = "item19" onclick="operator(operatorSelection, num1, num2)">=</div>
         </div>
     </div>
