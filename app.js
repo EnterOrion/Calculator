@@ -37,8 +37,14 @@ function operatorOutput(opFunc, a, b) {
     num2 = 0;
     numDisplay = 0;
     operatorSelection = "None";
+    if (answer.toString().length > 9) {
+        answer = answer.toExponential();
+        answer = answer.toString()
+        if (answer.length > 9) {
+            answer = answer.slice(0,9);
+        }
+    }
     num1 = answer;
-
     document.querySelector('.calc-window').innerText = answer;
 }
 
