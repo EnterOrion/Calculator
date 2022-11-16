@@ -1,6 +1,7 @@
 let numDisplay = 0;
 let num1 = 0;
 let num2 = 0;
+//let signalNum = 0;
 let operatorSelection = "None";
 updateDisplay();
 
@@ -20,7 +21,7 @@ function divNum(a,b) {
     return a / b;
 }
 
-function operator(opFunc, a, b) {
+function operatorOutput(opFunc, a, b, signal = "") {
     let answer = 0;
     if (opFunc == "*") {
         answer = multNum(a,b);
@@ -33,6 +34,16 @@ function operator(opFunc, a, b) {
     }
     else if (opFunc == "-") {
         answer = subNum(a,b);
+    }
+    num2 = 0;
+    numDisplay = 0;
+    //operatorSelection = "None";
+    if (signal == "=") {
+       num1 = 0;
+    }
+    else {
+        console.log("this has been reached");
+        num1 = answer;
     }
     document.querySelector('.calc-window').innerText = answer;
 }
@@ -81,8 +92,15 @@ function updateNum(num) {
 }
 
 function updateOperator(operator) {
-    operatorSelection = operator;
+    
+    if (operatorSelection == "None") {
     document.querySelector('.calc-window').innerText = num1;
+    operatorSelection = operator;
+    }
+    else {
+        operatorOutput(operatorSelection, num1, num2);
+        operatorSelection = operator;
+    }
 }
 
 
