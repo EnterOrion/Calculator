@@ -23,6 +23,10 @@ function divNum(a,b) {
 
 function operatorOutput(opFunc, a, b) {
     let answer = 0;
+    if (num2Acquired == 0) {
+        document.querySelector('.calc-window').innerText = num1;
+        return;
+    }
     if (opFunc == "*") {
         answer = multNum(a,b);
     }
@@ -104,17 +108,15 @@ function updateNum(num) {
 }
 
 function updateOperator(operator) {
-    if (operatorSelection == "None") {
-    document.querySelector('.calc-window').innerText = num1;
-    operatorSelection = operator;
-    }
-    else {
-        if (num2Acquired == 1)
+    if (num2Acquired == 1)
         {
             operatorOutput(operatorSelection, num1, num2);
             operatorSelection = operator;
         }
-    }
+    else {
+            document.querySelector('.calc-window').innerText = num1;
+            operatorSelection = operator;
+        }
 }
 
 
