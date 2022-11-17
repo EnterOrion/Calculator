@@ -1,6 +1,7 @@
 let numDisplay = "0";
 let num1 = 0;
 let num2 = 0;
+let num2Acquired = 0; 
 let operatorSelection = "None";
 updateDisplay();
 
@@ -37,6 +38,7 @@ function operatorOutput(opFunc, a, b) {
     num2 = 0;
     numDisplay = 0;
     operatorSelection = "None";
+    num2Acquired = 0;
     if (answer.toString().length > 9) {
         answer = answer.toExponential();
         answer = answer.toString()
@@ -89,26 +91,29 @@ function updateNum(num) {
     }
     else {
         if (num2 == 0) {
-        num2 = num;
+            num2 = num;
         }
         else {
            if (num1.toString().length < 9) {
-        num2 += num.toString();
+            num2 += num.toString();
            }
         }
+        num2Acquired = 1;
     }
 
 }
 
 function updateOperator(operator) {
-    
     if (operatorSelection == "None") {
     document.querySelector('.calc-window').innerText = num1;
     operatorSelection = operator;
     }
     else {
-        operatorOutput(operatorSelection, num1, num2);
-        operatorSelection = operator;
+        if (num2Acquired == 1)
+        {
+            operatorOutput(operatorSelection, num1, num2);
+            operatorSelection = operator;
+        }
     }
 }
 
