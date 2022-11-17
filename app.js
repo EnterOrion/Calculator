@@ -31,7 +31,12 @@ function operatorOutput(opFunc, a, b) {
         answer = multNum(a,b);
     }
     else if (opFunc == "/") {
-        answer = divNum(a,b);
+        if (b == 0) {
+            answer = "Error";
+        }
+        else {
+            answer = divNum(a,b);
+        }
     }
     else if (opFunc == "+") {
         answer = addNum(Number(a), Number(b));
