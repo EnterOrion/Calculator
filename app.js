@@ -123,5 +123,6 @@ function clearWindow () {
     numDisplay = 0;
     num1 = 0;
     num2 = 0;
+    num2Acquired = 0; 
     operatorSelection = "None";
 }
