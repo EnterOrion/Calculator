@@ -171,6 +171,16 @@ function updateOperator(operator) {
         }
 }
 
+function changeSign() {
+    if (num2Acquired == 1) {
+        num2 = -(num2);
+        document.querySelector('.calc-window').innerText = num2;
+    }
+    else {
+        num1 = -(num1);
+        document.querySelector('.calc-window').innerText = num1;
+    }
+}
 
 function clearWindow () {
     document.querySelector('.calc-window').innerText = 0;
