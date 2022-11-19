@@ -23,6 +23,10 @@ function divNum(a,b) {
     return a / b;
 }
 
+function modNum (a,b) {
+    return a % b;
+}
+
 function operatorOutput(opFunc, a, b) {
     let answer = 0;
     if (num2Acquired == 0) {
@@ -46,6 +50,9 @@ function operatorOutput(opFunc, a, b) {
     }
     else if (opFunc == "-") {
         answer = subNum(a,b);
+    }
+    else if (opFunc == "%") {
+        answer = modNum(a,b);
     }
     num2 = 0;
     numDisplay = 0;
