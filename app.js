@@ -2,6 +2,7 @@ let numDisplay = "0";
 let num1 = 0;
 let num2 = 0;
 let num2Acquired = 0; 
+let decimalAcquired = 0;
 let operatorSelection = "None";
 updateDisplay();
 
@@ -60,12 +61,20 @@ function operatorOutput(opFunc, a, b) {
 }
 
 function inputNum(num) {
-    if (numDisplay == 0) {
-        numDisplay = num;
+    if (num == "." && decimalAcquired != 0) {
+        return;
+    }
+
+    if (numDisplay == 0 && num == ".") {
+        numDisplay = "0."
+        decimalAcquired = 1;
       
     }
-    else if (num1 != 0 && operatorSelection != "None") {
-        if (num2 == 0) {
+    else if (numDisplay === 0 || numDisplay === "0") {
+        numDisplay = num; 
+    }
+    else if (operatorSelection != "None") {
+        if (num2 === 0 || num2 === "0") {
             numDisplay = num;
         }
         else {
@@ -76,9 +85,16 @@ function inputNum(num) {
     }
     else {
         if (numDisplay.toString().length < 9) {
-        numDisplay += num.toString();
+            if (num == "." && decimalAcquired != 0) {
+                return;
+            }
+            numDisplay += num.toString();
+            if (num == ".") {
+                decimalAcquired = 1;
+            }
         }
     }
+
     updateDisplay();
 }
 
@@ -88,31 +104,52 @@ function updateDisplay() {
 
 
 function updateNum(num) {
+    console.log(decimalAcquired);
+    if (decimalAcquired == 2 && num == ".") {
+        return;
+    }
     if (operatorSelection == "None") {
-        if (num1 == 0) {
+        if (num1 === 0) {
+
             num1 = num;  
+            if (num == ".") {
+                num1 = "0."
+                decimalAcquired = 2;
+            }
         }
         else {
             if (num1.toString().length < 9) {
-        num1 += num.toString();
+                num1 += num.toString();
+                if (num == ".") {
+                    decimalAcquired = 2;
+                }
             }
         }
     }
     else {
-        if (num2 == 0) {
+        if (num2 === 0) {
             num2 = num;
+            if (num == ".") {
+                num2 = "0."
+                decimalAcquired = 2;
+            }
         }
         else {
            if (num1.toString().length < 9) {
-            num2 += num.toString();
+                num2 += num.toString();
+                if (num == ".") {
+                    decimalAcquired = 2;
+                }
            }
         }
         num2Acquired = 1;
     }
-
+    console.log(`This is ${decimalAcquired}`);
+    console.log(num2)
 }
 
 function updateOperator(operator) {
+    decimalAcquired = 0;
     if (num2Acquired == 1)
         {
             operatorOutput(operatorSelection, num1, num2);
@@ -131,5 +168,6 @@ function clearWindow () {
     num1 = 0;
     num2 = 0;
     num2Acquired = 0; 
+    decimalAcquired = 0;
     operatorSelection = "None";
 }
