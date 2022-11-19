@@ -1,6 +1,7 @@
 let numDisplay = "0";
 let num1 = 0;
 let num2 = 0;
+let num1Acquired = 0;
 let num2Acquired = 0; 
 let decimalAcquired = 0;
 let operatorSelection = "None";
@@ -26,6 +27,7 @@ function operatorOutput(opFunc, a, b) {
     let answer = 0;
     if (num2Acquired == 0) {
         document.querySelector('.calc-window').innerText = num1;
+        operatorSelection = "None";
         return;
     }
     if (opFunc == "*") {
@@ -57,6 +59,7 @@ function operatorOutput(opFunc, a, b) {
         }
     }
     num1 = answer;
+    num1Acquired = 1;
     document.querySelector('.calc-window').innerText = answer;
 }
 
@@ -104,18 +107,20 @@ function updateDisplay() {
 
 
 function updateNum(num) {
-    console.log(decimalAcquired);
     if (decimalAcquired == 2 && num == ".") {
         return;
     }
     if (operatorSelection == "None") {
-        if (num1 === 0) {
-
-            num1 = num;  
+        if (num1 === 0 || num1Acquired == 1) {
+            if (num1Acquired == 1) {
+                num1Acquired = 2;
+            }
+             
             if (num == ".") {
                 num1 = "0."
                 decimalAcquired = 2;
             }
+            num1 = num; 
         }
         else {
             if (num1.toString().length < 9) {
@@ -144,8 +149,6 @@ function updateNum(num) {
         }
         num2Acquired = 1;
     }
-    console.log(`This is ${decimalAcquired}`);
-    console.log(num2)
 }
 
 function updateOperator(operator) {
@@ -167,6 +170,7 @@ function clearWindow () {
     numDisplay = 0;
     num1 = 0;
     num2 = 0;
+    num1Acquired = 0;
     num2Acquired = 0; 
     decimalAcquired = 0;
     operatorSelection = "None";
