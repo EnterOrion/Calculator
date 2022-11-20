@@ -7,6 +7,8 @@ let decimalAcquired = 0;
 let operatorSelection = "None";
 updateDisplay();
 
+
+
 function addNum(a,b) {
     return a + b;
 }
@@ -191,4 +193,15 @@ function clearWindow () {
     num2Acquired = 0; 
     decimalAcquired = 0;
     operatorSelection = "None";
+}
+
+let buttons = document.querySelectorAll("[class^=item]");
+for (i in buttons) {
+    buttons[i].onmouseover = function() {
+        buttons.forEach(function(btn){
+            btn.classList.remove('selected');
+          })
+          this.classList.add('selected');
+  
+    }
 }
